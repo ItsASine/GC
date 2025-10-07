@@ -37,8 +37,10 @@ jobs:
       - name: Upload CSS to blob
         run: |
           az storage blob upload-batch \
-            --account-name arithmancergc \
+            --auth-mode login \
+            --account-name "${{ secrets.AZURE_STORAGE_ACCOUNT }}" \
             --destination css \
             --source css \
             --pattern "*.css" \
-            --overwrite
+            --overwrite \
+            --content-cache-control "public, max-age=300"
