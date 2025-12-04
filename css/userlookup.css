@@ -1,0 +1,317 @@
+@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Orbitron:wght@500&display=swap);
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: crosshair;
+}
+a { transition: 0.3s; text-decoration: none; }
+a:hover { letter-spacing: 1px; }
+strong { font-family: "Orbitron", sans-serif; font-weight: bold; }
+hr { display: none; }
+#banner_img { display: none; }
+
+#aio_sidebar { display: grid !important; /* revert makes Z sad */ }
+#page_content { max-width: 900px; margin: 0 auto; padding: 20px; width: 100%; }
+
+#userLookupContent {
+    display: grid;
+    grid-template-areas:
+    "name  name"
+    "bio   bio"
+    /*"text  shield"*/
+    "text  avs"
+    "text  stamps"
+    "text  relics"
+    "links links"
+    "pets  pets"
+    "st    st"
+    "gt    gt";
+    align-items: center;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 18px;
+    padding: 20px;
+    animation: pulseGlow 2s infinite alternate;
+}
+#userLookupShield { display: none; grid-area: shield; text-align: center; }
+#userLookupLinks { grid-area: links; }
+#userLookupPets { grid-area: pets; }
+#userLookupSiteTrophies { grid-area: st; margin-top: 50px }
+#userLookupGameTrophies { grid-area: gt; }
+#bio { grid-area: bio; }
+#userLookupDesc, #userLookupInfo, #userLookupCollections { display: contents !important; }
+
+#userLookupDesc,
+#userLookupInfo,
+#userLookupPets,
+#userLookupSiteTrophies,
+#userLookupGameTrophies,
+#userLookupLinks,
+#userReportBlock {
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    border: 1px solid #0ff;
+}
+
+#userLookupLinks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+#bio .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1rem 0; }
+#bio a {
+    display: flex; align-items: center; justify-content: center;
+    width: 88px; height: 31px; line-height: 31px; text-align: center;
+    border: solid 0.1875rem #00FFF7; border-radius: 4px;
+    box-shadow: 0.3125rem 0.3125rem #00FFF7;
+    font: bold 10px "Courier New", monospace; color: #E0F0FF;
+    text-transform: uppercase; margin: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#bio a:hover { position: relative; z-index: 1; box-shadow: 0 0 8px #FF2D95, 0 0 16px #00FFF7; }
+
+#userPetList, #siteTrophiesList, #gameTrophiesList {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 10px; width: 100%;
+}
+#userPetList .ul__pet { flex: 1 1 150px; min-width: 150px; max-width: 200px; text-align: center; }
+#userPetList .ul__pet .ul--petname { display: block; font-size: 14px; word-break: normal; overflow-wrap: normal; margin-top: 10px }
+
+#userLookupPets img,
+#userLookupSiteTrophies img,
+#userLookupGameTrophies img,
+#userPetList .ul__pet img {
+    width: auto; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: contain;
+}
+#userLookupPets img, #userLookupSiteTrophies img, #userLookupGameTrophies img, a::after { opacity: 0.9; transition: 0.3s ease-in-out; }
+#userLookupPets img:hover, #userLookupSiteTrophies img:hover, #userLookupGameTrophies img:hover, a:hover::after { transform: scale(1.1); }
+#userLookupSiteTrophies img, #userLookupGameTrophies img, a::after { border-radius: 6px; transition: transform 0.3s ease, filter 0.3s ease; }
+#userLookupSiteTrophies img:hover, #userLookupGameTrophies img:hover, a:hover::after { transform: scale(1.15); }
+
+#userLookupDesc,
+#userLookupInfo,
+#userLookupPets,
+#userLookupSiteTrophies,
+#userLookupGameTrophies,
+#userLookupLinks {
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    border: 2px solid #00FFF7;
+    box-shadow: 0 0 20px #00FFF7;
+    backdrop-filter: blur(10px);
+    transform: perspective(1000px) rotateX(1deg);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.01) 1px,
+            transparent 1px
+    );
+    background-size: 100% 2px;
+    animation: flickerStatic 0.15s infinite;
+    z-index: 999;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px,
+            transparent 2px
+    );
+    z-index: 998;
+    mix-blend-mode: soft-light;
+}
+
+.ul--petsheader {position: relative; color: #0ff; animation: flicker 1.5s infinite;}
+
+.ul--header { grid-area: name; font-family: "Orbitron", sans-serif; font-size: 42px; text-align: center; letter-spacing: 2px; margin-bottom: -10px; animation: flicker 2s infinite; }
+.ul__avatars { grid-area: avs; }
+.ul__stamps { grid-area: stamps; }
+.ul__relics { grid-area: relics; }
+.ul--petsheader { flex-basis: 100%; margin: auto; text-align: center; font-family: "Orbitron", sans-serif; font-size: 18px; padding-top: 1rem; font-weight: normal; letter-spacing: 2px; }
+.ul--sectionheader { margin-bottom: 4px; }
+.ul--sectionheader strong { font-family: "Orbitron", sans-serif; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; padding: 10px; margin-bottom: 10px; display: inline-block; max-width: 100%; overflow-wrap: break-word; }
+
+#userLookupLinks .ul--linkimg, .ul--stampsimg { object-position: -99999px; background-repeat: no-repeat; background-position: center; background-size: contain; border: none; content: ""; width: 50px; height: 50px; display: inline-block; margin-right: 8px; }
+.ul--tradesimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/coins.png); }
+.ul--auctionsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/law.png); }
+.ul--wishlistimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/like.png); }
+.ul--scoresimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/trophy.png); }
+.ul--neomailimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/new-post.png); }
+.ul--neofriendimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/add-user-male.png); }
+.ul--stampsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/image-gallery.png); }
+.ul__relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/treasure-chest.png); }
+
+.ul__knifeyblobcat .ul--petname { animation: glitch 1.2s infinite; font-weight: bold; position: relative; color: #ff00f7; text-shadow: 2px 0 #0ff, -2px 0 #ff00f7; }
+.ul__knifeyblobcat .ul--petname::after { content: "▌"; animation: blink 1s step-end infinite; margin-left: 2px; border: none; border-radius: 0; box-shadow: none;}
+.ul__knifeyblobcat img { content: url(https://cdn3.emoji.gg/emojis/82841-blobcat-knife.png); }
+.ul__Heinzy img { content: url(https://i.imgur.com/OWsfrn7.jpeg); }
+
+.ul__JustAGirl a:first-child::after {
+    position: fixed;
+    margin-top: 40px;
+    content: "";
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+.ul__JustAGirl a:first-child::after {
+    background: url(https://grundoscafe.b-cdn.net/items/madfish_checkered.gif) no-repeat center;
+}
+
+#userPetList .ul__pet img, a::after {
+    border: 2px solid #00fff7;
+    border-radius: 8px;
+    box-shadow: 0 0 6px #00fff7;
+    animation: cyberpulse 2s ease-in-out infinite;
+    transition: transform 0.2s ease;
+}
+
+html:not([data-dark-mode="true"]) body { background: linear-gradient(to bottom, #0d1b2a, #1b263b, #415a77) fixed; color: #e0e0ff; }
+html:not([data-dark-mode="true"]) a { color: #0ff; }
+html:not([data-dark-mode="true"]) a:hover { color: #ff00f7; text-shadow: 0 0 6px #ff00f7; }
+html:not([data-dark-mode="true"]) strong { color: #a1f0ff; }
+html:not([data-dark-mode="true"]) #userLookupContent { background: rgba(0, 8, 20, 0.8); border: 2px solid #0ff; box-shadow: 0 0 15px #0ff; }
+html:not([data-dark-mode="true"]) .ul--header { color: #0ff; }
+html:not([data-dark-mode="true"]) #userLookupDesc,
+html:not([data-dark-mode="true"]) #userLookupInfo,
+html:not([data-dark-mode="true"]) #userLookupPets,
+html:not([data-dark-mode="true"]) #userLookupSiteTrophies,
+html:not([data-dark-mode="true"]) #userLookupGameTrophies,
+html:not([data-dark-mode="true"]) #userLookupLinks,
+html:not([data-dark-mode="true"]) #userReportBlock { background: rgba(15, 25, 45, 0.55); border: 1px solid #0ff; box-shadow: 0 0 12px rgba(0, 255, 255, 0.15); }
+html:not([data-dark-mode="true"]) #userLookupPets img,
+html:not([data-dark-mode="true"]) #userLookupSiteTrophies img,
+html:not([data-dark-mode="true"]) #userLookupGameTrophies img,
+html:not([data-dark-mode="true"]) a::after { filter: drop-shadow(0 0 2px #0ff); }
+html:not([data-dark-mode="true"]) #userLookupPets img:hover,
+html:not([data-dark-mode="true"]) #userLookupSiteTrophies img:hover,
+html:not([data-dark-mode="true"]) #userLookupGameTrophies img:hover,
+html:not([data-dark-mode="true"]) a:hover::after { filter: drop-shadow(0 0 5px #ff00f7); }
+html:not([data-dark-mode="true"]) .ul--sectionheader strong { color: #0ff; border-bottom: 1px solid #00e0ff; }
+html:not([data-dark-mode="true"]) #userLookupSiteTrophies img,
+html:not([data-dark-mode="true"]) #userLookupGameTrophies img { filter: drop-shadow(0 0 4px #00f7ff); }
+html:not([data-dark-mode="true"]) #userLookupSiteTrophies img:hover,
+html:not([data-dark-mode="true"]) #userLookupGameTrophies img:hover { filter: drop-shadow(0 0 6px #ff00f7); }
+html:not([data-dark-mode="true"]) #userPetList .ul__pet .ul--petname { color: #0ff; }
+html:not([data-dark-mode="true"]) .ul--petsheader { color: #9ff; }
+
+html[data-dark-mode="true"] body { background: linear-gradient(to bottom, #000010, #050022, #0a001e); color: #e0e0ff; }
+html[data-dark-mode="true"] #userLookupContent { background: #0b0014; border: 2px solid #ff00f7; box-shadow: 0 0 18px #ff00f7; }
+html[data-dark-mode="true"] .ul--header,
+html[data-dark-mode="true"] #userPetList .ul__pet .ul--petname { color: #ff00f7; }
+html[data-dark-mode="true"] #userLookupDesc,
+html[data-dark-mode="true"] #userLookupInfo,
+html[data-dark-mode="true"] #userLookupPets,
+html[data-dark-mode="true"] #userLookupSiteTrophies,
+html[data-dark-mode="true"] #userLookupGameTrophies,
+html[data-dark-mode="true"] #userLookupLinks,
+html[data-dark-mode="true"] #userReportBlock { background: rgba(30, 0, 60, 0.45); border: 1px solid rgba(255, 0, 247, 0.5); box-shadow: 0 0 15px rgba(255, 0, 247, 0.25); }
+html[data-dark-mode="true"] a { color: #ff00f7; }
+html[data-dark-mode="true"] a:hover { color: #0ff; text-shadow: 0 0 6px #0ff; }
+html[data-dark-mode="true"] #bio a { border: solid 0.1875rem #ff00f7; box-shadow: 0.3125rem 0.3125rem #ff00f7; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+html[data-dark-mode="true"] #bio a:hover { position: relative; z-index: 1; box-shadow: 0 0 8px #00FFF7, 0 0 16px #FF2D95; }
+html[data-dark-mode="true"] strong { color: #ffb7ff; }
+html[data-dark-mode="true"] #userLookupPets img,
+html[data-dark-mode="true"] #userLookupSiteTrophies img,
+html[data-dark-mode="true"] #userLookupGameTrophies img,
+html[data-dark-mode="true"] a::after { filter: drop-shadow(0 0 3px #ff00f7); }
+html[data-dark-mode="true"] #userLookupPets img:hover,
+html[data-dark-mode="true"] #userLookupSiteTrophies img:hover,
+html[data-dark-mode="true"] #userLookupGameTrophies img:hover { filter: drop-shadow(0 0 6px #0ff); }
+html[data-dark-mode="true"] .ul--sectionheader strong { color: #ff00f7; border-color: #ff00f7; }
+html[data-dark-mode="true"] #userLookupSiteTrophies img,
+html[data-dark-mode="true"] #userLookupGameTrophies img { filter: drop-shadow(0 0 4px #ff00f7); }
+html[data-dark-mode="true"] #userLookupSiteTrophies img:hover,
+html[data-dark-mode="true"] #userLookupGameTrophies img:hover { filter: drop-shadow(0 0 6px #0ff); }
+html[data-dark-mode="true"] .ul--tradesimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/coins.png); }
+html[data-dark-mode="true"] .ul--auctionsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/law.png); }
+html[data-dark-mode="true"] .ul--wishlistimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/like.png); }
+html[data-dark-mode="true"] .ul--scoresimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/trophy.png); }
+html[data-dark-mode="true"] .ul--neomailimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/new-post.png); }
+html[data-dark-mode="true"] .ul--neofriendimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/add-user-male.png); }
+html[data-dark-mode="true"] .ul--stampsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/image-gallery.png); }
+html[data-dark-mode="true"] .ul__relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/treasure-chest.png); }
+html[data-dark-mode="true"] .ul--petsheader { color: #f9e }
+html[data-dark-mode="true"] #bio ul li a { border-color: #ff77ff; color: #ff77ff }
+html[data-dark-mode="true"] #bio ul li a:hover { box-shadow: 0 0 8px #00ffff, 0 0 12px #00ffff; }
+
+@keyframes flickerStatic {
+    0%, 100% {
+        opacity: 0.03;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.08;
+        transform: translateY(1px);
+    }
+}
+@keyframes glitch {
+    0% { text-shadow: 2px 0 #0ff, -2px 0 #ff00f7; }
+    20% { text-shadow: -2px 0 #0ff, 2px 0 #ff00f7; }
+    40% { text-shadow: 2px 2px #0ff, -2px -2px #ff00f7; }
+    60% { text-shadow: -1px 1px #0ff, 1px -1px #ff00f7; }
+    80% { text-shadow: 1px 0 #0ff, -1px 0 #ff00f7; }
+    100% { text-shadow: 0 0 #0ff, 0 0 #ff00f7; }
+}
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px #0ff, 0 0 20px #ff00f7; }
+    100% { box-shadow: 0 0 20px #ff00f7, 0 0 40px #0ff; }
+}
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+@keyframes cyberpulse {
+    0% {
+        box-shadow: 0 0 4px #00fff7, 0 0 6px #00fff7;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 6px #ff00f7, 0 0 12px #ff00f7;
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 4px #00fff7, 0 0 6px #00fff7;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 955px) {
+    body { font-size: 16px; }
+    #userLookupContent { padding: 15px; }
+    .ul--sectionheader strong { font-size: 16px; }
+    .ul--header { font-size: 32px; }
+    #userPetList .ul__pet .ul--petname { font-size: 14px; }
+    #userPetList, #siteTrophiesList, #gameTrophiesList { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
+    #userLookupLinks { word-break: break-all; white-space: normal; }
+    a { padding: 8px; min-height: 44px; display: inline-flex; align-items: center; }
+    .ul--linkimg, .ul--stampsimg, .ul__relicsimg, .ul--avatarsimg { width: 40px; height: 40px; }
+}
+@media (max-width: 480px) {
+    .ul--header { font-size: 28px; }
+    #userLookupContent { padding: 10px; }
+    #userPetList, #siteTrophiesList, #gameTrophiesList { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; }
+    #userLookupLinks { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+}
