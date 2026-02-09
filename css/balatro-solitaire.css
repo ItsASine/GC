@@ -2,10 +2,10 @@
 #ss_board {
     background-image: url(https://i.imgur.com/0NTlRMC.png) !important
 }
-#ss_board img[src="https://grundoscafe.b-cdn.net/games/php_games/sakhmetsolitaire/pyramid.gif"] {
+img[src="https://grundoscafe.b-cdn.net/games/php_games/sakhmetsolitaire/pyramid.gif"] {
     content: url(https://i.imgur.com/ZJrBKas.png)
 }
-#ss_board img[src="https://grundoscafe.b-cdn.net/games/php_games/sakhmetsolitaire/new_open.gif"] {
+img[src="https://grundoscafe.b-cdn.net/games/php_games/sakhmetsolitaire/new_open.gif"] {
     content: url(https://i.imgur.com/E9UyAkJ.png)
 }
 #ss_board img[src="https://grundoscafe.b-cdn.net/games/cards/2_clubs.gif"] {
