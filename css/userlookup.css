@@ -25,6 +25,7 @@ hr { display: none; }
     /*"text  shield"*/
     "text  avs"
     "text  stamps"
+    "text  tcgs"
     "text  relics"
     "links links"
     "pets  pets"
@@ -143,6 +144,7 @@ body::before {
 .ul--header { grid-area: name; font-family: "Orbitron", sans-serif; font-size: 42px; text-align: center; letter-spacing: 2px; margin-bottom: -10px; animation: flicker 2s infinite; }
 .ul__avatars { grid-area: avs; }
 .ul__stamps { grid-area: stamps; }
+.ul__tcgs { grid-area: tcgs; }
 .ul__relics { grid-area: relics; }
 .ul--petsheader { flex-basis: 100%; margin: auto; text-align: center; font-family: "Orbitron", sans-serif; font-size: 18px; padding-top: 1rem; font-weight: normal; letter-spacing: 2px; }
 .ul--sectionheader { margin-bottom: 4px; }
@@ -156,7 +158,8 @@ body::before {
 .ul--neomailimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/new-post.png); }
 .ul--neofriendimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/add-user-male.png); }
 .ul--stampsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/image-gallery.png); }
-.ul__relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/treasure-chest.png); }
+.ul--tcgsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/cards.png); }
+.ul--relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/treasure-chest.png); }
 
 .ul__knifeyblobcat .ul--petname { animation: glitch 1.2s infinite; font-weight: bold; position: relative; color: #ff00f7; text-shadow: 2px 0 #0ff, -2px 0 #ff00f7; }
 .ul__knifeyblobcat .ul--petname::after { content: "▌"; animation: blink 1s step-end infinite; margin-left: 2px; border: none; border-radius: 0; box-shadow: none;}
@@ -251,7 +254,8 @@ html[data-dark-mode="true"] .ul--scoresimg { background-image: url(https://img.i
 html[data-dark-mode="true"] .ul--neomailimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/new-post.png); }
 html[data-dark-mode="true"] .ul--neofriendimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/add-user-male.png); }
 html[data-dark-mode="true"] .ul--stampsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/image-gallery.png); }
-html[data-dark-mode="true"] .ul__relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/treasure-chest.png); }
+html[data-dark-mode="true"] .ul--tcgsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/cards.png); }
+html[data-dark-mode="true"] .ul--relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/treasure-chest.png); }
 html[data-dark-mode="true"] .ul--petsheader { color: #f9e }
 html[data-dark-mode="true"] #bio ul li a { border-color: #ff77ff; color: #ff77ff }
 html[data-dark-mode="true"] #bio ul li a:hover { box-shadow: 0 0 8px #00ffff, 0 0 12px #00ffff; }
@@ -307,7 +311,7 @@ html[data-dark-mode="true"] #bio ul li a:hover { box-shadow: 0 0 8px #00ffff, 0 
     #userPetList, #siteTrophiesList, #gameTrophiesList { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
     #userLookupLinks { word-break: break-all; white-space: normal; }
     a { padding: 8px; min-height: 44px; display: inline-flex; align-items: center; }
-    .ul--linkimg, .ul--stampsimg, .ul__relicsimg, .ul--avatarsimg { width: 40px; height: 40px; }
+    .ul--linkimg, .ul--stampsimg, .ul--tcgsimg, .ul--relicsimg, .ul--avatarsimg { width: 40px; height: 40px; }
     .ul__JustAGirl a:first-child::after { margin-left: 162px; }
 }
 @media (max-width: 480px) {
