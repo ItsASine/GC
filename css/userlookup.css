@@ -150,7 +150,7 @@ body::before {
 .ul--sectionheader { margin-bottom: 4px; }
 .ul--sectionheader strong { font-family: "Orbitron", sans-serif; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; padding: 10px; margin-bottom: 10px; display: inline-block; max-width: 100%; overflow-wrap: break-word; }
 
-#userLookupLinks .ul--linkimg, .ul--stampsimg { object-position: -99999px; background-repeat: no-repeat; background-position: center; background-size: contain; border: none; content: ""; width: 50px; height: 50px; display: inline-block; margin-right: 8px; }
+#userLookupLinks .ul--linkimg, .ul--stampsimg, .ul--tcgsimg { object-position: -99999px; background-repeat: no-repeat; background-position: center; background-size: contain; border: none; content: ""; width: 50px; height: 50px; display: inline-block; margin-right: 8px; }
 .ul--tradesimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/coins.png); }
 .ul--auctionsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/law.png); }
 .ul--wishlistimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/like.png); }
