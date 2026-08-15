@@ -161,6 +161,8 @@ body::before {
 .ul--tcgsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/cards.png); }
 .ul--relicsimg { content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/treasure-chest.png); }
 
+.ul__relics .ul--collectionslabel::after { content: none; }
+
 .ul__knifeyblobcat .ul--petname { animation: glitch 1.2s infinite; font-weight: bold; position: relative; color: #ff00f7; text-shadow: 2px 0 #0ff, -2px 0 #ff00f7; }
 .ul__knifeyblobcat .ul--petname::after { content: "▌"; animation: blink 1s step-end infinite; margin-left: 2px; border: none; border-radius: 0; box-shadow: none;}
 .ul__knifeyblobcat img { content: url(https://cdn3.emoji.gg/emojis/82841-blobcat-knife.png); }
