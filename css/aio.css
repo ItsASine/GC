@@ -1,0 +1,309 @@
+@import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap);
+#global-aio-dropdown {
+    max-width: 250px;
+}
+.dropdown-content {
+    max-width: 250px;
+    display: block;
+}
+#sb_top, #sb_side, #sb_bottom {
+    filter: brightness(65%) contrast(120%) saturate(120%);
+}
+#aio-edit-sb-text {
+    border-radius: 10px;
+}
+#aio-edit-sb .aio-arrow.down {
+    width: 36px;
+    height: 32px;
+    border-radius: 10px;
+}
+#aio-edit-sb .aio-arrow.up {
+    width: 36px;
+    height: 32px;
+    border-radius: 10px;
+}
+.dailies, .timelies, .always, .training, .quests, .games, .shops, .aio-pets {
+    padding: 2px;
+    border-radius: 15px;
+}
+.fish {
+    padding: 0 2px 2px 2px;
+    border-radius: 15px;
+}
+.aio-section-header, .aio-section-header a {
+    letter-spacing: 0.2rem;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF2D95;
+    background: rgba(20, 20, 30, 0.8);
+    border: 2px solid #00FFF7;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #00FFF7, 0 0 12px #FF2D95 inset;
+    transition: color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.aio-section-header:hover, .aio-section-header a:hover {
+    color: #00FFF7;
+    box-shadow: 0 0 8px #FF2D95, 0 0 16px #00FFF7 inset;
+}
+.aio-section-header {
+    margin-bottom: 3px;
+    padding: 4px 0;
+}
+.aio-sub-header {
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF2D95;
+    text-shadow: 0 0 5px #FF2D95;
+    margin: 10px 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+.aio-sub-header::before, .aio-sub-header::after {
+    content: "";
+    flex-grow: 1;
+    height: 2px;
+    background: #00FFF7;
+    box-shadow: 0 0 5px #00FFF7;
+}
+.aio-section .aio-arrow.down, .aio-section .aio-arrow.up, .quests .aio-arrow.down, .quests .aio-arrow.up {
+    height: 27px;
+    width: 27px;
+}
+#aio-fish-arrow, #aio-training-arrow {
+    display: none;
+}
+#aio_sidebar_placeholder {
+    background-color: #121212;
+    grid-area: aio;
+    width: 600px;
+    max-width: 800px;
+    margin: 0;
+}
+#aio_sidebar {
+    font-size: 12px;
+    font-family: "Orbitron", sans-serif;
+    color: #C4C4C4;
+    text-align: center;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "edit edit edit" "inv wiz wiz" "inv training fishing" "quests timelies shops" "games dailies shops" "games always shops" "games active shops" "games petpet shops";
+    grid-template-rows: auto;
+    gap: 5px;
+    background: transparent;
+    margin-left: 10px;
+    margin-top: 7px;
+    width: auto;
+}
+.aio-section, #aio-edit-sb-div {
+    margin-bottom: 0;
+}
+#aio-edit-sb-div {
+    grid-area: edit;
+}
+#aio-edit-sb {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+    width: 100%;
+}
+#aio-edit-sb-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.aio-arrow.down, .aio-arrow.up {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFEC48;
+    font-size: 14px;
+    text-shadow: 0 0 6px #FFEC48;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.aio-arrow.down:hover, .aio-arrow.up:hover {
+    color: #00FFF7;
+    text-shadow: 0 0 8px #00FFF7;
+}
+.aio-section {
+    background: rgba(24, 16, 34, 0.9);
+    border: 2px solid #00FFF7;
+    border-radius: 8px;
+    padding: 0.75rem;
+    box-shadow: 4px 4px #FF2D95;
+    position: relative;
+}
+.dailies {
+    grid-area: dailies;
+}
+.timelies {
+    grid-area: timelies;
+}
+.aio-pets {
+    grid-area: pets;
+}
+.always {
+    grid-area: always;
+}
+.fish {
+    grid-area: fishing;
+}
+.training {
+    grid-area: training;
+}
+.quests {
+    grid-area: quests;
+    position: relative;
+}
+.shops {
+    grid-area: shops;
+}
+.games {
+    grid-area: games;
+}
+.active-pet {
+    grid-area: active;
+}
+.active-petpet {
+    grid-area: petpet;
+}
+.aio-items {
+    grid-area: inv;
+}
+.wiz {
+    grid-area: wiz;
+}
+#aio-item-list {
+    max-height: 300px;
+    overflow: auto;
+}
+.aio-section .aio-arrow.down, .aio-section .aio-arrow.up {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    background: none;
+}
+.aio-inv-item {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #FF2D95;
+    border-radius: 6px;
+    background: #1A1A1A;
+    box-shadow: 3px 3px #00FFF7;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.aio-inv-item:hover {
+    transform: translatey(-3px) scale(1.05);
+    box-shadow: 0 0 8px #FF2D95, 0 0 16px #00FFF7;
+}
+.aio-items {
+    position: relative;
+}
+.aio-quantity-circle {
+    box-shadow: 0 0 6px #FFEC48, 0 0 10px #FF2D95 inset;
+}
+.aio-inv-dropdown-menu {
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow: auto;
+}
+#aio_sidebar .aioImg .aio-pet-image {
+    width: 150px;
+    height: 150px;
+    max-height: 150px;
+}
+#aio_sidebar .aioImg .aio-petpet-image {
+    width: 70px;
+    height: 70px;
+    max-height: 70px;
+}
+.aio-pet-image {
+    content: url(https://i.imgur.com/bAiaPj1.png);
+}
+#aio_sidebar > .quests > .aioImg > div {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    gap: 3px;
+}
+.aioImg {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#aio_sidebar img {
+    background-color: #FFF;
+}
+#aio_sidebar .aioImg img, .aio_sprite, .shop_sprite {
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+    border-radius: 999px;
+    padding: 1px;
+    margin: 2px;
+}
+.aioImg img, .aio_sprite, .shop_sprite {
+    opacity: 0.7;
+}
+.aioImg img:hover, .aio_sprite:hover, .shop_sprite:hover {
+    opacity: 1;
+}
+@media (pointer: coarse) {
+    #aio_sidebar_placeholder {
+        max-width: 250px;
+    }
+    .aio-section .aio-arrow.down, .aio-section .aio-arrow.up {
+        position: absolute;
+        top: 12px;
+        right: 8px;
+        background: none;
+    }
+    .aio-quantity-circle {
+        top: -2px;
+        height: 20px;
+        width: 20px;
+    }
+    div#aio_sidebar {
+        display: grid;
+        grid-template-areas: "edit " "inv " "wiz " "training" "fishing " "timelies" "dailies " "quests " "always " "shops " "games " "active " "petpet " "pets ";
+        width: 100% !important;
+        scrollbar-width: thin;
+        margin: 0 auto;
+        padding: 7px 5px;
+        grid-template-columns: auto;
+        grid-auto-rows: auto;
+        height: 51dvh;
+        overflow: auto;
+        box-sizing: border-box;
+        row-gap: 5px;
+        align-items: start;
+    }
+}
+#aio-inv-search {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    border-radius: 7px;
+    width: 95% !important;
+    opacity: 0.8;
+    transition: ease all 0.2s;
+}
+#aio-inv-search:focus {
+    opacity: 1;
+}
