@@ -1,0 +1,283 @@
+#aio_sidebar {
+    display: grid !important
+}
+
+body, #page_content, main, #petLookupContent, #petStats {
+    background-color: #0b0b0b;
+    color: #c0fdfd;
+    font-family: "Share Tech Mono", monospace
+}
+#page_header, .site-banner, #user_info, #banner_img {
+    display: none
+}
+#petLookupContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: radial-gradient(circle at center, #0a0a0a, #000)
+}
+#petTop, #petDescription, .pet--no-trade-alert, #petLinks, #petBattle, #petPetpet {
+    background: linear-gradient(145deg, rgba(10,10,20,0.9), rgba(5,5,10,0.8));
+    border: 2px solid #00fff7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 0 10px #00fff7;
+    animation: sectionGlow 3s ease-in-out infinite alternate;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+#petTop:hover, #petDescription:hover, .pet--no-trade-alert:hover, #petLinks:hover, #petBattle:hover, #petPetpet:hover {
+    transform: scale(1.02)
+}
+#petTop::before {
+    content: "Stats"
+}
+#petDescription::before {
+    content: "Notes"
+}
+.pet--no-trade-alert::before {
+    content: "Not For Trade"
+}
+#petLinks::before {
+    content: "Links"
+}
+#petBattle::before {
+    content: "BD Stats"
+}
+#petPetpet::before {
+    content: "Petpet"
+}
+#petTop::before, #petDescription::before, .pet--no-trade-alert::before, #petLinks::before, #petBattle::before, #petPetpet::before {
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    background: #0ff;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.65rem;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    text-transform: uppercase
+}
+#petImage img {
+    border: 2px solid #00fff7;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background: radial-gradient(circle, #011, #000);
+    box-shadow: 0 0 6px #00fff7;
+    animation: cyberpulse 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+#petImage img:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+a {
+    color: #0ff
+}
+a:hover {
+    color: #f0f
+}
+.pet--hpcolor, .pet--gendercolor {
+    text-shadow: 0 0 2px currentColor, 0 0 6px currentColor;
+    font-weight: bold
+}
+.pet--petpetdesc, .pet--petpetage, .pet--petpetzapped {
+    color: #fff6c1;
+    font-family: "VT323", monospace
+}
+
+.pet--neomailimg {
+    content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/new-post.png)
+}
+.pet--petpageimg {
+    content: url(https://img.icons8.com/sf-regular-filled/50/00ffff/internet.png)
+}
+
+html[data-dark-mode="true"] #petTop::before, html[data-dark-mode="true"] #petDescription::before, html[data-dark-mode="true"] .pet--no-trade-alert::before, html[data-dark-mode="true"] #petLinks::before, html[data-dark-mode="true"] #petBattle::before, html[data-dark-mode="true"] #petPetpet::before {
+    background: #f0f
+}
+html[data-dark-mode="true"] a {
+    color: #f0f
+}
+html[data-dark-mode="true"] a:hover {
+    color: #0ff
+}
+html[data-dark-mode="true"] #petImage img {
+    border-color: #f0f
+}
+html[data-dark-mode="true"] .pet--neomailimg {
+    content: url(https://img.icons8.com/sf-regular-filled/50/ff00ff/new-post.png)
+}
+html[data-dark-mode="true"] .pet--petpageimg {
+    content: url(https://img.icons8.com/sf-regular-filled/50/ff00ff/internet.png)
+}
+
+@keyframes cyberpulse {
+    0% {
+        box-shadow: 0 0 4px #00fff7, 0 0 6px #00fff7;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 6px #ff00f7, 0 0 12px #ff00f7;
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 4px #00fff7, 0 0 6px #00fff7;
+        transform: scale(1);
+    }
+}
+
+@keyframes sectionGlow {
+    0% {
+        box-shadow: 0 0 8px #00fff7, 0 0 12px #00fff7;
+        border-color: #00fff7;
+    }
+    50% {
+        box-shadow: 0 0 12px #ff00f7, 0 0 16px #ff00f7;
+        border-color: #ff00f7;
+    }
+    100% {
+        box-shadow: 0 0 8px #00fff7, 0 0 12px #00fff7;
+        border-color: #00fff7;
+    }
+}
+
+@media screen and (max-width: 992px),
+screen and (max-device-width: 992px) {
+    #sb_side,
+    #page_banner,
+    #page_event {
+        display: none !important;
+    }
+
+    #container {
+        display: grid !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-areas:
+            "atop"
+            "top"
+            "content"
+            "footer" !important;
+        grid-template-rows: auto auto auto auto !important;
+    }
+
+    #advert-header,
+    #sb_top,
+    #page_footer {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    #page_content,
+    #page_content > main,
+    #petLookupContent,
+    #petTop,
+    #petInfo,
+    #petStats,
+    #petDescription,
+    .pet--no-trade-alert,
+    #petLinks,
+    #petBattle,
+    #petRecord,
+    #petPetpet {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    #petLookupContent {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 28px !important;
+        padding: 16px !important;
+    }
+
+    #petTop,
+    #petDescription,
+    .pet--no-trade-alert,
+    #petLinks,
+    #petBattle,
+    #petPetpet {
+        padding: 28px 16px 16px !important;
+        overflow-wrap: anywhere;
+        font-size: 22px;
+        line-height: 1.4;
+        letter-spacing: 0.3px;
+    }
+
+    #petTop:hover,
+    #petDescription:hover,
+    .pet--no-trade-alert:hover,
+    #petLinks:hover,
+    #petBattle:hover,
+    #petPetpet:hover {
+        transform: none;
+    }
+
+    #petTop::before,
+    #petDescription::before,
+    .pet--no-trade-alert::before,
+    #petLinks::before,
+    #petBattle::before,
+    #petPetpet::before {
+        font-size: 16px;
+        top: -14px;
+    }
+
+    #petTop .pet--header {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    #petInfo,
+    #petBattle {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 16px;
+    }
+
+    #petImage,
+    #petBattleImage {
+        text-align: center;
+    }
+
+    #petImage img,
+    .pet--battleimg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #petStats,
+    #petRecord {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    #petTraitsSelect form {
+        width: 100% !important;
+    }
+
+    #petTraitsSelect select {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    #petLinks .pet--linkimg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pet_all_petpets,
+    .pet_petpet {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
