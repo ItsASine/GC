@@ -152,6 +152,7 @@ body::before {
 
 #userLookupLinks .ul--linkimg, .ul--stampsimg, .ul--tcgsimg { object-position: -99999px; background-repeat: no-repeat; background-position: center; background-size: contain; border: none; content: ""; width: 50px; height: 50px; display: inline-block; margin-right: 8px; }
 .ul--tradesimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/coins.png); }
+.ul--neogramimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/photo.png); }
 .ul--auctionsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/law.png); }
 .ul--wishlistimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/like.png); }
 .ul--scoresimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/00ffff/trophy.png); }
@@ -250,6 +251,7 @@ html[data-dark-mode="true"] #userLookupGameTrophies img { filter: drop-shadow(0 
 html[data-dark-mode="true"] #userLookupSiteTrophies img:hover,
 html[data-dark-mode="true"] #userLookupGameTrophies img:hover { filter: drop-shadow(0 0 6px #0ff); }
 html[data-dark-mode="true"] .ul--tradesimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/coins.png); }
+html[data-dark-mode="true"] .ul--neogramimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/photo.png); }
 html[data-dark-mode="true"] .ul--auctionsimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/law.png); }
 html[data-dark-mode="true"] .ul--wishlistimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/like.png); }
 html[data-dark-mode="true"] .ul--scoresimg { background-image: url(https://img.icons8.com/sf-regular-filled/50/ff00f7/trophy.png); }
